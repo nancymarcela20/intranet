@@ -26,7 +26,7 @@ public class Manual implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idManual;
 	
-	@Column(name="nombre", nullable = false, length = 100)
+	@Column(name="nombre", unique = true, nullable = false, length = 100)
 	private String nombre;
 	
 	@Column(name="descripcion", length = 200)	
@@ -50,16 +50,13 @@ public class Manual implements Serializable{
 	@Column(name="urlvideo", nullable = false, length = 100)
 	private String urlVideo;
 	
-	
-	  @ManyToOne
+	@ManyToOne	  
+	@JoinColumn(name = "FK_CLASIFICACION", nullable = false, updatable = false)
+	private Clasificacion clasificacion;
 	  
-	  @JoinColumn(name = "FK_CLASIFICACION", nullable = false, updatable = false)
-	  private Clasificacion clasificacion;
-	  
-	  @ManyToOne
-	  
-	  @JoinColumn(name = "FK_DEPARTAMENTO", nullable = false, updatable = false)
-	  private Departamento departamento;
+	@ManyToOne
+	@JoinColumn(name = "FK_DEPARTAMENTO", nullable = false, updatable = false)
+	private Departamento departamento;
 	 
 
 	public Long getId() {
