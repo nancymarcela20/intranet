@@ -23,11 +23,15 @@ public class Departamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long iddepartamento;
+	private Long idDepartamento;
 	
 	@Column(name="nombre", nullable = false, length = 100)
 	private String nombre;
+	
+	@Column(name="codigo", unique = true, nullable = false, length = 45)
+	private String codigo;
 	
 	@Column(name="fecharegistro", nullable = false)
 	private Date fechaRegistro;
@@ -36,10 +40,7 @@ public class Departamento implements Serializable{
 	private Date fechaActualizacion;
 	
 	@Column(name = "estado")
-	private boolean estado;
-	
-	@Column(name="codigo", nullable = false, length = 45)
-	private String codigo;
+	private boolean estado;	
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento") private
@@ -47,11 +48,11 @@ public class Departamento implements Serializable{
 	 
 
 	public Long getIdDepartamento() {
-		return iddepartamento;
+		return idDepartamento;
 	}
 
-	public void setIdDepartamento(Long iddepartamento) {
-		this.iddepartamento = iddepartamento;
+	public void setIdDepartamento(Long idDepartamento) {
+		this.idDepartamento = idDepartamento;
 	}
 
 	

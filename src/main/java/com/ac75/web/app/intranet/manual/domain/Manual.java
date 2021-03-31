@@ -22,8 +22,9 @@ public class Manual implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idManual;
 	
 	@Column(name="nombre", nullable = false, length = 100)
 	private String nombre;
@@ -62,11 +63,11 @@ public class Manual implements Serializable{
 	 
 
 	public Long getId() {
-		return id;
+		return idManual;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long idManual) {
+		this.idManual = idManual;
 	}
 
 	public String getNombre() {

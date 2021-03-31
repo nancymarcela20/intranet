@@ -23,8 +23,9 @@ public class Clasificacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idclasificacion;
+	private Long idClasificacion;
 	
 	@Column(name="nombre", nullable = false, length = 100)
 	private String nombre;
@@ -45,11 +46,11 @@ public class Clasificacion implements Serializable{
 	private List<Manual> manuales;
 
 	public Long getIdClasificacion() {
-		return idclasificacion;
+		return idClasificacion;
 	}
 
-	public void setIdClasificacion(Long idclasificacion) {
-		this.idclasificacion = idclasificacion;
+	public void setIdClasificacion(Long idClasificacion) {
+		this.idClasificacion = idClasificacion;
 	}
 
 	public String getNombre() {
